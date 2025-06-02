@@ -1,8 +1,13 @@
-FROM node:18 as build
+# Build Stage
+FROM node:18 AS build
 
 WORKDIR /app
 COPY . .
-RUN npm ci && npm run build
 
+# Wenn du KEIN package-lock.json hast, nimm nur "npm install"
+RUN npm install && npm run build
+
+# Production Stage
 FROM nginx:alpine
 COPY --from=build /app/target /usr/share/nginx/html
+
