@@ -19,4 +19,4 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: 📤 Docker Push
-        run: docker push ${{ secrets.DOCKER_PASSWORD }}/nginx-pramhas:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/nginx-pramhas:latest
