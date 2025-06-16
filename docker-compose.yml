@@ -1,0 +1,6 @@
+version: "3"
+services:
+  web:
+    image: laurent07/pure-ci-cd:latest
+    ports:
+      - "8080:80"
